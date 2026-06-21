@@ -1,9 +1,10 @@
 import axios from "axios";
-//=======Registration=====
+
+//======= Content Generation =====
 
 export const generateContentAPI = async (userPrompt) => {
   const response = await axios.post(
-    "http://localhost:8090/api/v1/openai/generate-content",
+    "https://content-mern-ai-backend.onrender.com/api/v1/openai/generate-content",
     {
       prompt: userPrompt,
     },
@@ -11,5 +12,6 @@ export const generateContentAPI = async (userPrompt) => {
       withCredentials: true,
     }
   );
+
   return response?.data;
 };

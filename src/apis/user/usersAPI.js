@@ -1,9 +1,10 @@
 import axios from "axios";
-//=======Registration=====
+
+//======= Registration =====
 
 export const registerAPI = async (userData) => {
   const response = await axios.post(
-    "http://localhost:8090/api/v1/users/register",
+    "https://content-mern-ai-backend.onrender.com/api/v1/users/register",
     {
       email: userData?.email,
       password: userData?.password,
@@ -13,13 +14,15 @@ export const registerAPI = async (userData) => {
       withCredentials: true,
     }
   );
+
   return response?.data;
 };
-//=======Login=====
+
+//======= Login =====
 
 export const loginAPI = async (userData) => {
   const response = await axios.post(
-    "http://localhost:8090/api/v1/users/login",
+    "https://content-mern-ai-backend.onrender.com/api/v1/users/login",
     {
       email: userData?.email,
       password: userData?.password,
@@ -28,40 +31,46 @@ export const loginAPI = async (userData) => {
       withCredentials: true,
     }
   );
+
   return response?.data;
 };
-//=======Check auth=====
+
+//======= Check Auth =====
 
 export const checkUserAuthStatusAPI = async () => {
   const response = await axios.get(
-    "http://localhost:8090/api/v1/users/auth/check",
+    "https://content-mern-ai-backend.onrender.com/api/v1/users/auth/check",
     {
       withCredentials: true,
     }
   );
+
   return response?.data;
 };
-//=======Logout =====
+
+//======= Logout =====
 
 export const logoutAPI = async () => {
   const response = await axios.post(
-    "http://localhost:8090/api/v1/users/logout",
+    "https://content-mern-ai-backend.onrender.com/api/v1/users/logout",
     {},
     {
       withCredentials: true,
     }
   );
+
   return response?.data;
 };
-//=======Logout =====
+
+//======= User Profile =====
 
 export const getUserProfileAPI = async () => {
   const response = await axios.get(
-    "http://localhost:8090/api/v1/users/profile",
-
+    "https://content-mern-ai-backend.onrender.com/api/v1/users/profile",
     {
       withCredentials: true,
     }
   );
+
   return response?.data;
 };
