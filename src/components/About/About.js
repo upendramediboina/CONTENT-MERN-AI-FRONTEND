@@ -21,7 +21,7 @@ const cards = [
   {
     name: "Press & Media Collaborations",
     description:
-      "Masync is at the forefront of AI-driven content generation. We're eager to collaborate with media and press to share insights and developments in AI technology, shaping the future of digital content.",
+      "Uppiis at the forefront of AI-driven content generation. We're eager to collaborate with media and press to share insights and developments in AI technology, shaping the future of digital content.",
     icon: NewspaperIcon,
   },
 ];
@@ -35,10 +35,10 @@ export default function AboutUs() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            Masync AI - Redefining Content Creation
+            UppiAI - Redefining Content Creation
           </h2>
           <p className="mt-6 text-lg leading-8 text-gray-300">
-            Masync AI is revolutionizing the way content is created. Our
+            UppiAI is revolutionizing the way content is created. Our
             cutting-edge AI technology automates and enhances content
             generation, enabling creators to produce high-quality, engaging
             material with ease.
