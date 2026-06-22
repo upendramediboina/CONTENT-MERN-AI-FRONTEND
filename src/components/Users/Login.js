@@ -20,38 +20,35 @@ const Login = () => {
   const { isAuthenticated, login } = useAuth();
 
   const navigate = useNavigate();
-  //Redirect if a user is login
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate("/dashboard");
-    }
-  }, [isAuthenticated]);
-  //mutation
-  const mutation = useMutation({ mutationFn: loginAPI });
-  // Formik setup for form handling
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    validationSchema: validationSchema,
-    onSubmit: (values) => {
-      // Here, you would typically handle form submission
+  const mutation = useMutation({
+  mutationFn: loginAPI,
+});
+ // Redirect if user is logged in
+useEffect(() => {
+  if (isAuthenticated) {
+    navigate("/dashboard");
+  }
+}, [isAuthenticated, navigate]);
 
-      mutation.mutate(values);
+// Formik setup
+const formik = useFormik({
+  initialValues: {
+    email: "",
+    password: "",
+  },
+  validationSchema,
+  onSubmit: (values) => {
+    mutation.mutate(values);
+  },
+});
 
-      // Simulate login success and navigate to dashboard
-      setTimeout(() => {
-        navigate("/dashboard");
-      }, 5000);
-    },
-  });
-  //Update is authenticated
-  useEffect(() => {
-    if (mutation.isSuccess) {
-      login();
-    }
-  }, [mutation.isSuccess]);
+// Update authentication state
+useEffect(() => {
+  if (mutation.isSuccess) {
+    login();
+    navigate("/dashboard");
+  }
+}, [mutation.isSuccess, login, navigate]);
   return (
     <div className="min-h-screen bg-gray-900 flex items-center justify-center">
       <div className="max-w-md w-full bg-white rounded-lg shadow-md p-8 m-4">
